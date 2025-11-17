@@ -1,0 +1,24 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: handyman-api
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: handyman-api
+  template:
+    metadata:
+      labels:
+        app: handyman-api
+    spec:
+      containers:
+        - name: handyman-api
+          image: registry.digitalocean.com/handyman-docker-registry/dev/handyman-api:latest
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 8002
+          env:
+            - name: DEPLOYMENT
+              value: DEV
+

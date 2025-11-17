@@ -1,0 +1,24 @@
+  apiVersion: networking.k8s.io/v1
+  kind: Ingress
+  metadata:
+    annotations:
+      nginx.ingress.kubernetes.io/enable-cors: "true"
+      nginx.ingress.kubernetes.io/cors-allow-methods: "PUT, GET, POST, OPTIONS, DELETE"
+      nginx.ingress.kubernetes.io/cors-allow-headers: "X-Forwarded-For, X-app123-XPTO, Content-Type, Access-Control-Allow-Origin, Authorization"
+      nginx.ingress.kubernetes.io/cors-expose-headers: "*, X-CustomResponseHeader"
+      nginx.ingress.kubernetes.io/cors-allow-credentials: "false"
+      nginx.ingress.kubernetes.io/cors-allow-origin: "*"
+      nginx.ingress.kubernetes.io/proxy-body-size: 50m
+      kubernetes.io/ingress.class: nginx
+    name: handyman-api-ingress
+  spec:
+    rules:
+    - http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: handyman-api
+                port:
+                  number: 8002

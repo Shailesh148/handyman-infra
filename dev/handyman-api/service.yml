@@ -1,0 +1,12 @@
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: handyman-api
+spec:
+  selector:
+    app: handyman-api
+  ports:
+    - protocol: TCP
+      port: 8002
+      targetPort: 8002
