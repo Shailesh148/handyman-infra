@@ -17,7 +17,7 @@ spec:
           image: registry.digitalocean.com/handyman-docker-registry/dev/handyman-api:latest
           imagePullPolicy: Always
           ports:
-            - containerPort: 8002
+            - containerPort: 8000
           env:
             - name: DEPLOYMENT
               value: DEV

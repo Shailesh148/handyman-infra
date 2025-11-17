@@ -8,5 +8,5 @@ spec:
     app: handyman-api
   ports:
     - protocol: TCP
-      port: 8002
-      targetPort: 8002
+      port: 8000
+      targetPort: 8000
