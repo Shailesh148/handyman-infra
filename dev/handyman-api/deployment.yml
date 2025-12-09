@@ -21,4 +21,11 @@ spec:
           env:
             - name: DEPLOYMENT
               value: DEV
-
+          volumeMounts:
+            - name: firebase-secret
+              mountPath: /etc/firebase
+              readOnly: true
+      volumes:
+        - name: firebase-secret
+          secret:
+            secretName: firebase-service-account
